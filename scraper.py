@@ -22,7 +22,7 @@ for cycle in range(1, number_of_pages + 1):
         tag_news = data.find_all('article')   # data.find_all('span', {'data-test': 'article.type'})
 
         for i in tag_news:
-            if i.find('span', {'data-test': 'article.type'}).text == type_of_articles:
+            if i.find('span', class_="c-meta__type").text == type_of_articles:
                 link = "https://www.nature.com" + i.find('a', {"data-track-action": "view article"}).get("href")
 
                 new_article = requests.get(link)
